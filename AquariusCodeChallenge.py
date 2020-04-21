@@ -24,14 +24,16 @@ headers = {
 }
 
 result = requests.post(url_auth, headers=headers)
+
 #Display Result of Response
 print(result)
+
+#Create Token
 user_token = result.json()['token']
 print(user_token)
 token ={
     'token': user_token
 }
-my_token = json.dumps(token)
 
 
 # POST Wallet API
@@ -42,12 +44,12 @@ content ={
     'username': username,
     'email': 'alexander.malpica@upr.edu',
     'phone': '(787) 478-8490',
-    'my_wallet_address': 'GA4NrvqKq7GLfuBCZYwDnJ694zwQhy'
+    'my_wallet_address': '3LEyNjRsoB1VXr8NQwPAsLSjHgtsiuiJTj'
 }
 data = json.dumps(content)
 
 headers1 = {
-    'Authorization': 'Bearer ' + my_token,
+    'Authorization': 'Bearer ' + str(token),
     'Content-Type': 'application/json'
 }
 
