@@ -30,11 +30,6 @@ print(result)
 
 #Create Token
 user_token = result.json()['token']
-print(user_token)
-token ={
-    'token': user_token
-}
-
 
 # POST Wallet API
 url_wallet = url + 'wallet/send_me_bitcoin'
@@ -49,7 +44,7 @@ content ={
 data = json.dumps(content)
 
 headers1 = {
-    'Authorization': 'Bearer ' + str(token),
+    'Authorization': 'Bearer ' + str(user_token),
     'Content-Type': 'application/json'
 }
 
